@@ -8,4 +8,10 @@ node {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
+  stage('Build'){
+    steps {
+      sh 'sudo ./mvnw spring-boot:build-image;' 
+      archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+    }
+  }
 }
