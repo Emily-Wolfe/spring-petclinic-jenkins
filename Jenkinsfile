@@ -12,7 +12,7 @@ node {
     sh "./mvnw spring-boot:build-image"
     archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
   }
-    stage('Run'){
-    sh "sudo docker run -d --name container1 -p 8081:8080 docker.io/library/spring-petclinic:3.1.0-SNAPSHOT"
+  stage('Run'){
+    sh "sudo docker run -d --name spring-petclinic -p 8081:8080 docker.io/library/spring-petclinic:3.1.0-SNAPSHOT"
   }
 }
