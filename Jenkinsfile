@@ -9,7 +9,7 @@ node {
     }
   }
   stage('Build'){
-    sh './mvnw spring-boot:build-image;' 
+    sh 'sudo ./mvnw spring-boot:build-image;' 
     archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
   }
 }
